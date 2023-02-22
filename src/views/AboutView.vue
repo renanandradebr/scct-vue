@@ -1,18 +1,66 @@
 <template>
-  <v-container fluid>
-    <v-form v-model="valid">
-      <h2>Cadastro de Usuário</h2>
-      <v-divider></v-divider>
-      <v-text-field v-model="nome" label="Nome completo" required></v-text-field>
-      <v-text-field v-model="email" label="E-mail" type="email" required></v-text-field>
-      <v-text-field v-model="senha" label="Senha" type="password" required></v-text-field>
-      <v-text-field v-model="confirmSenha" label="Confirme a senha" type="password" required></v-text-field>
-      <v-select v-model="sexo" :items="sexos" label="Sexo" required></v-select>
-      <v-select v-model="setor" :items="setores" label="Setor" required></v-select>
-      <v-text-field v-model="matricula" label="Matrícula" required></v-text-field>
-      <v-checkbox v-model="aceitaTermos" label="Aceito os termos e condições" required></v-checkbox>
-      <v-btn color="primary" dark :disabled="!valid" @click="cadastrar">Cadastrar</v-btn>
-    </v-form>
+  <v-container class="fill-height" fluid>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6">
+        <v-card>
+          <v-card-title class="text-center">Cadastro de Usuário</v-card-title>
+          <v-card-text>
+            <v-form @submit.prevent="submit">
+              <v-text-field
+                v-model="nome"
+                label="Nome Completo"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                label="E-mail"
+                type="email"
+                required
+              ></v-text-field>
+              <v-select
+                v-model="sexo"
+                :items="['Masculino', 'Feminino', 'Outro']"
+                label="Sexo"
+                required
+              ></v-select>
+              <v-text-field
+                v-model="nascimento"
+                label="Data de Nascimento"
+                type="date"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="cpf"
+                label="CPF"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="telefone"
+                label="Telefone"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="setor"
+                label="Setor"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="matricula"
+                label="Matrícula"
+                required
+              ></v-text-field>
+              <v-checkbox
+                v-model="termos"
+                label="Li e concordo com os termos e condições"
+                required
+              ></v-checkbox>
+              <v-btn type="submit" color="primary" class="mr-4">Cadastrar</v-btn>
+              <v-btn color="error">Cancelar</v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -20,33 +68,21 @@
 export default {
   data() {
     return {
-      nome: '',
-      email: '',
-      senha: '',
-      confirmSenha: '',
-      sexo: null,
-      setor: null,
-      matricula: '',
-      aceitaTermos: false,
-      valid: false,
-      sexos: ['Masculino', 'Feminino', 'Outro'],
-      setores: ['RH', 'TI', 'Financeiro', 'Comercial', 'Operacional']
-    }
+      nome: "",
+      email: "",
+      sexo: "",
+      nascimento: "",
+      cpf: "",
+      telefone: "",
+      setor: "",
+      matricula: "",
+      termos: false
+    };
   },
   methods: {
-    cadastrar() {
-      // Aqui você pode implementar a lógica para enviar os dados do formulário para o servidor
-      // ou para o armazenamento local.
-      console.log('Dados do formulário:', {
-        nome: this.nome,
-        email: this.email,
-        senha: this.senha,
-        sexo: this.sexo,
-        setor: this.setor,
-        matricula: this.matricula,
-        aceitaTermos: this.aceitaTermos
-      });
+    submit() {
+      console.log("Formulário enviado!");
     }
   }
-}
+};
 </script>

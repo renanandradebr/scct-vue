@@ -32,7 +32,7 @@
 
             <v-btn block color="primary" class="mb-2" elevation="1" outlined>AGENDA TELEFÔNICA</v-btn>
 
-            <v-btn block color="primary" class="mb-2" elevation="1" outlined>SOLICITAR BACKUPS</v-btn>
+            <v-btn block color="primary" class="mb-2" to='./backups'  elevation="1" outlined>SOLICITAR BACKUPS</v-btn>
 
             <v-btn block color="primary" class="mb-2" elevation="1" outlined>ACESSAR LOGS DE USUÁRIO</v-btn>
           </v-row>

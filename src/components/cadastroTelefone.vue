@@ -1,44 +1,68 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12" sm="8" md="6">
-        <v-card>
-          <v-card-title class="headline text-center">Cadastro de Usuário</v-card-title>
-          <v-card-text>
-            <v-form @submit.prevent="submit">
-              <v-text-field v-model="form.name" label="Nome" required></v-text-field>
-              <v-text-field v-model="form.email" label="E-mail" type="email" required></v-text-field>
-              <v-text-field v-model="form.password" label="Senha" type="password" required></v-text-field>
-              <v-text-field v-model="form.confirmPassword" label="Confirme a senha" type="password" required></v-text-field>
-              <v-text-field v-model="form.setor" label="Setor"></v-text-field>
-              <v-text-field v-model="form.matricula" label="Matrícula"></v-text-field>
-              <v-btn type="submit" color="primary">Cadastrar</v-btn>
-            </v-form>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+  <v-container fluid>
+    <v-card>
+      <v-card-title class="headline">Cadastro de Telefone Celular</v-card-title>
+      <v-card-text>
+        <v-form ref="form">
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="nome" label="Nome" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="sobrenome" label="Sobrenome" required></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="telefone" label="Telefone" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="operadora" label="Operadora"></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="tipoPlano" label="Tipo de Plano"></v-text-field>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="valorPlano" label="Valor do Plano"></v-text-field>
+            </v-col>
+          </v-row>
+        </v-form>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" @click="salvar">Salvar</v-btn>
+        <v-btn color="error" to='./'  @click="cancelar">Cancelar</v-btn>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'CadastroTelefone',
   data() {
     return {
-      form: {
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        setor: '',
-        matricula: ''
-      }
-    }
+      nome: '',
+      sobrenome: '',
+      telefone: '',
+      operadora: '',
+      tipoPlano: '',
+      valorPlano: '',
+    };
   },
   methods: {
-    submit() {
-      // Lógica para submeter o formulário
-    }
-  }
-}
+    salvar() {
+      if (this.$refs.form.validate()) {
+        // Lógica para salvar os dados
+      }
+    },
+    cancelar() {
+      // Lógica para cancelar o cadastro
+    },
+  },
+});
 </script>

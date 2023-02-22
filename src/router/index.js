@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import paginaView from '../views/cadastroTelView.vue'
 import login from '../views/loginView.vue'
-import Contatos from '../views/contatosView.vue'
+import Contatos from '../views/contatosView.vue' 
+import backup from '../views/backupsView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
     name:'cadastro telefone',
 
     component: paginaView
+  },
+  {
+    path:'/backups',
+    name:'solicitarBackups',
+    component: backup
   }
 ]
 
