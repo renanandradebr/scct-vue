@@ -5,6 +5,7 @@ import paginaView from '../views/cadastroTelView.vue'
 import login from '../views/loginView.vue'
 import Contatos from '../views/contatosView.vue' 
 import backup from '../views/backupsView.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,7 +17,8 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+   
   },
   {
     path: '/cadastro',

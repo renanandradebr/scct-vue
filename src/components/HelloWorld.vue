@@ -5,13 +5,13 @@
     </div>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img :src="require('../assets/logo-scct.png')" class="my-8 " contain height="100" />
+        <v-img :src="require('../assets/logo-scct.png')" class="my-4 " contain height="120" />
       </v-col>
 
     </v-row>
 
 
-    <v-divider></v-divider>
+    <v-divider class="my-3"></v-divider>
     <v-row>
 
       <v-col cols="4" class="pa-4 my-4">
