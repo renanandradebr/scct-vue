@@ -1,68 +1,88 @@
 <template>
-  <v-container fluid>
-    <v-card>
-      <v-card-title class="headline">Cadastro de Telefone Celular</v-card-title>
-      <v-card-text>
-        <v-form ref="form">
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="nome" label="Nome" required></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="sobrenome" label="Sobrenome" required></v-text-field>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="telefone" label="Telefone" required></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="operadora" label="Operadora"></v-text-field>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="tipoPlano" label="Tipo de Plano"></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="valorPlano" label="Valor do Plano"></v-text-field>
-            </v-col>
-          </v-row>
-        </v-form>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" @click="salvar">Salvar</v-btn>
-        <v-btn color="error" to='./'  @click="cancelar">Cancelar</v-btn>
-      </v-card-actions>
-    </v-card>
+  <v-container class="fill-height" fluid>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6">
+        <v-card>
+          <v-card-title class="text-center">Cadastro de Usuário</v-card-title>
+          <v-card-text>
+            <v-form @submit.prevent="submit">
+              <v-text-field
+                v-model="nome"
+                label="Nome Completo"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                label="E-mail"
+                type="email"
+                required
+              ></v-text-field>
+              <v-select
+                v-model="sexo"
+                :items="['Masculino', 'Feminino', 'Outro']"
+                label="Sexo"
+                required
+              ></v-select>
+              <v-text-field
+                v-model="nascimento"
+                label="Data de Nascimento"
+                type="date"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="cpf"
+                label="CPF"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="telefone"
+                label="Telefone"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="setor"
+                label="Setor"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="matricula"
+                label="Matrícula"
+                required
+              ></v-text-field>
+              <v-checkbox
+                v-model="termos"
+                label="Li e concordo com os termos e condições"
+                required
+              ></v-checkbox>
+              <v-btn type="submit" color="primary" class="mr-4">Cadastrar</v-btn>
+              <v-btn color="error">Cancelar</v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'CadastroTelefone',
+<script>
+export default {
   data() {
     return {
-      nome: '',
-      sobrenome: '',
-      telefone: '',
-      operadora: '',
-      tipoPlano: '',
-      valorPlano: '',
+      nome: "",
+      email: "",
+      sexo: "",
+      nascimento: "",
+      cpf: "",
+      telefone: "",
+      setor: "",
+      matricula: "",
+      termos: false
     };
   },
   methods: {
-    salvar() {
-      if (this.$refs.form.validate()) {
-        // Lógica para salvar os dados
-      }
-    },
-    cancelar() {
-      // Lógica para cancelar o cadastro
-    },
-  },
-});
+    submit() {
+      console.log("Formulário enviado!");
+    }
+  }
+};
 </script>
