@@ -5,6 +5,7 @@ import paginaView from '../views/cadastroTelView.vue'
 import login from '../views/loginView.vue'
 import Contatos from '../views/contatosView.vue' 
 import backup from '../views/backupsView.vue'
+import bread from '../components/breadCrumbs.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
     path:'/backups',
     name:'solicitarBackups',
     component: backup
+  },
+  {
+    path:'breads',
+    name: 'bread',
+    component: bread
   }
 ]
 
